@@ -13,7 +13,7 @@
         success = '';
         fail = '';
 
-        const res = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/newsletteremail`, {
+        const res = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/newsletteremail`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

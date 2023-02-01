@@ -25,7 +25,7 @@
     async function loadArticles() {
         if (page > -1) {
             page++;
-            let articles = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/articles?page=${page}&limit=${data.limit}`).then((res) => res.json());
+            let articles = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles?page=${page}&limit=${data.limit}`).then((res) => res.json());
             if (articles.length < data.limit) {
                 page = -1;
             }

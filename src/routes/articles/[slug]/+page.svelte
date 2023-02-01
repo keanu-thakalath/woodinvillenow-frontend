@@ -13,7 +13,7 @@
     let comments = [];
 
     onMount(async () => {
-        await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/analytics`, {
+        await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/analytics`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -24,7 +24,7 @@
             })
         });
 
-        comments = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/articles/${data.article.url_slug}/comments`).then(res => res.json());
+        comments = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles/${data.article.url_slug}/comments`).then(res => res.json());
 	});
 
     let submit: Submit;
@@ -36,7 +36,7 @@
         submit.disable();
         fail = '';
 
-        const res = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/articles/${data.article.url_slug}/comments`, {
+        const res = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles/${data.article.url_slug}/comments`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

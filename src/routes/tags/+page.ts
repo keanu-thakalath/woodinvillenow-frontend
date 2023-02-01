@@ -8,7 +8,7 @@ export const load: PageLoad = async ({ fetch, url }) => {
     if (urlTag == null) {
         tag = {url_slug: 'all'};
     }
-    let tags = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/tags`).then((res) => res.json());
+    let tags = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/tags`).then((res) => res.json());
     
     tags = [{name: 'All', url_slug: 'all'}, ...tags]
 
@@ -19,7 +19,7 @@ export const load: PageLoad = async ({ fetch, url }) => {
         });
     }
 
-    const articles = tag.url_slug === 'all' ? await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/articles`).then((res) => res.json()) : await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/articles?tag=${tag.url_slug}`).then((res) => res.json());
+    const articles = tag.url_slug === 'all' ? await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles`).then((res) => res.json()) : await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/articles?tag=${tag.url_slug}`).then((res) => res.json());
 
     return { articles, tags, tag };
 };

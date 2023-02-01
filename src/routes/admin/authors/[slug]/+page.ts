@@ -6,7 +6,7 @@ import { PUBLIC_BACKEND_DOMAIN } from '$env/static/public';
 export const load: PageLoad = async ({ fetch, params }) => {
     verify_auth();
 
-    const res = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/authors/${params.slug}`);
+    const res = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/authors/${params.slug}`);
     const author = await res.json();
     if (res.status == 404) {
         throw error(404, {

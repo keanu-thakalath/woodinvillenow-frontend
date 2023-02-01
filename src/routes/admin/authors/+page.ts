@@ -5,7 +5,7 @@ import type { PageLoad } from './$types';
 export const load: PageLoad = async ({ fetch }) => {
     verify_auth();
 
-    const authors = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/authors`).then((res) => res.json());
+    const authors = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/authors`).then((res) => res.json());
     return { authors };
 };
 

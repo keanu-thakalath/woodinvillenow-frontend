@@ -5,7 +5,7 @@
     let articles = [];
 
     onMount(async () => {
-        articles = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/articles?sort_by=views&limit=5`).then(res => res.json());
+        articles = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles?sort_by=views&limit=5`).then(res => res.json());
     });
 </script>
 

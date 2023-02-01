@@ -12,7 +12,7 @@
     async function handleSubmit(e: SubmitEvent) {
         submit.disable();
 
-        const res = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/tags`, {
+        const res = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/tags`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

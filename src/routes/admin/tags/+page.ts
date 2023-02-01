@@ -5,7 +5,7 @@ import type { PageLoad } from './$types';
 export const load: PageLoad = async ({ fetch }) => {
     verify_auth();
 
-    const tags = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/tags`).then((res) => res.json());
+    const tags = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/tags`).then((res) => res.json());
     return { tags };
 };
 

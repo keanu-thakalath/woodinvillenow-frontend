@@ -5,7 +5,7 @@ import type { PageLoad } from './$types';
 export const load: PageLoad = async ({ fetch }) => {
     verify_auth();
 
-    const categories = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/categories`).then((res) => res.json());
+    const categories = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/categories`).then((res) => res.json());
     return { categories };
 };
 

@@ -27,7 +27,7 @@
     async function handleDeleteSubmit(e: SubmitEvent) {
         deleteSubmit.disable();
 
-        const res = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/articles/${data.article.url_slug}`, {
+        const res = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles/${data.article.url_slug}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -48,7 +48,7 @@
         submit.disable();
         
 
-        const res = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/articles/${data.article.url_slug}`, {
+        const res = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles/${data.article.url_slug}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

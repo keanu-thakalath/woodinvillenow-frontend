@@ -26,7 +26,7 @@
         success = '';
         fail = '';
 
-        const res = await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/newsletter`, {
+        const res = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/newsletter`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
