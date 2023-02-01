@@ -19,7 +19,7 @@ export const load: PageLoad = async ({ fetch, url }) => {
         });
     }
 
-    const articles = tag.url_slug === 'all' ? await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles`).then((res) => res.json()) : await fetch(`http://${PUBLIC_BACKEND_DOMAIN}/api/articles?tag=${tag.url_slug}`).then((res) => res.json());
+    const articles = tag.url_slug === 'all' ? await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles`).then((res) => res.json()) : await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles?tag=${tag.url_slug}`).then((res) => res.json());
 
     return { articles, tags, tag };
 };
