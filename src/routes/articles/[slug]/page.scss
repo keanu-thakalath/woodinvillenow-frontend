@@ -1,0 +1,74 @@
+@tailwind components;
+
+@layer components {
+    article {
+        section.content {
+            p {
+                @apply mb-10;
+            }
+            .no-mb {
+                @apply mb-5;
+            }
+            // Custom page styles
+            h5 {
+                @apply text-xl font-semibold mb-5;
+            }
+            li {
+                @apply my-5;
+            }
+        
+            ul {
+                @apply list-disc pl-10 md:pl-14;
+                list-style: circle;
+            }
+            div.multiline {
+                @apply mb-10;
+                p {
+                    @apply my-3;
+                }
+            }
+            .italic {
+                font-style: italic;
+            }
+            .underline {
+                text-decoration: underline;
+            }
+            img {
+                @apply mb-10 mr-auto ml-auto;
+            }
+        }
+    }
+
+    .hero {
+        @apply grid place-items-center place-content-center overflow-hidden;
+        grid-template: "container";
+        background: linear-gradient(to bottom, rgba(255,255,255,.3), rgba(0,0,0,.3) 20%, rgba(0,0,0,.5) 70%, rgba(0, 0, 0, .9));
+    }
+
+    .hero > .meta {
+        @apply w-full md:w-3/4 lg:w-3/5 px-5 md:pl-10 pb-10 lg:pb-24;
+        place-self: end start;
+        grid-area: container;
+    }
+
+    .hero img {
+        @apply w-screen max-h-screen h-screen object-cover -z-10;
+        grid-area: container;
+    }
+
+    
+    .hero > * {
+        animation: fadeInAnimation ease-in-out 1s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+    
+    @keyframes fadeInAnimation {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}
