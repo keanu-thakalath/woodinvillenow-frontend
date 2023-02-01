@@ -5,7 +5,6 @@
 	import { onMount } from 'svelte';
     import './page.scss';
     import Head from '$lib/components/Head.svelte';
-    import StayUpToDate from '$lib/components/StayUpToDate.svelte';
     import { PUBLIC_BACKEND_DOMAIN } from '$env/static/public';
 
     export let data: PageData;
