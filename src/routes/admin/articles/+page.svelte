@@ -2,12 +2,25 @@
     import type { PageData } from './$types';
     import Submit from '$lib/components/Submit.svelte';
     import Alert from '$lib/components/Alert.svelte';
+    import LoadOnScroll from '$lib/components/LoadOnScroll.svelte';
     import { get_auth_header } from '$lib/client/auth';
     import { PUBLIC_BACKEND_DOMAIN } from '$env/static/public';
     
     let alert: Alert;
     let submit: Submit;
     export let data: PageData;
+    let page = 1;
+
+    async function loadArticles() {
+        if (page > -1) {
+            page++;
+            let articles = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles?page=${page}&limit=${data.limit}`).then((res) => res.json());
+            if (articles.length < data.limit) {
+                page = -1;
+            }
+            data.articles = [...data.articles, ...articles];
+        }
+    }
 
     async function handleSubmit(e: SubmitEvent) {
         submit.disable();
@@ -48,6 +61,9 @@
 
 <section class="flex justify-center pt-40">
     <div class="w-9/12 bg-gray-100 text-gray-900 rounded-md px-10 py-2">
+        <form on:submit|preventDefault={handleSubmit} class="space-y-4">
+            <Submit bind:this={submit} value="New Article"/>
+        </form>
         <div class="my-3 flex justify-between items-center border-b-2 py-5 border-gray-300">
             <p class="w-1/4 pl-2 font-bold">Title</p>
             <p class="w-1/4">Datetime</p>
@@ -68,9 +84,7 @@
                 <p class="w-1/12 hover:text-blue-500"><a href="/articles/{article.url_slug}">{article.url_slug}</a></p>
             </div>
         {/each}
-        <form on:submit|preventDefault={handleSubmit} class="space-y-4">
-            <Submit bind:this={submit} value="New Article"/>
-        </form>
+        <LoadOnScroll load={loadArticles} />
     </div>
 </section>
 

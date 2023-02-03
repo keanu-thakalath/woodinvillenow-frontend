@@ -38,6 +38,9 @@
 
 <section class="flex justify-center pt-40">
     <div class="w-9/12 bg-gray-100 text-gray-900 rounded-md px-10 py-2">
+        <form on:submit|preventDefault={handleSubmit} class="space-y-4">
+            <Submit bind:this={submit} value="New Tag"/>
+        </form>
         <div class="my-3 flex justify-between items-center border-b-2 py-5 border-gray-300">
             <p class="w-5/12 pl-2 font-bold">Tags</p>
             <p class="w-5/12">URL Slug</p>
@@ -50,9 +53,6 @@
                 <p class="w-1/6">{tag.id}</p>
             </div>
         {/each}
-        <form on:submit|preventDefault={handleSubmit} class="space-y-4">
-            <Submit bind:this={submit} value="New Tag"/>
-        </form>
     </div>
 </section>
 

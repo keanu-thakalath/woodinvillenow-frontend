@@ -19,7 +19,6 @@
         
             ul {
                 @apply list-disc pl-10 md:pl-14;
-                list-style: circle;
             }
             div.multiline {
                 @apply mb-10;
@@ -30,11 +29,23 @@
             .italic {
                 font-style: italic;
             }
+
+            .bold {
+                @apply font-bold;
+            }
             .underline {
                 text-decoration: underline;
             }
             img {
                 @apply mb-10 mr-auto ml-auto;
+            }
+
+            div.img-array {
+                @apply flex flex-wrap;
+                img {
+                    @apply w-1/2 p-1 mb-0;
+                }
+                @apply mb-10;
             }
 
             a {

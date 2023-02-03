@@ -2,7 +2,7 @@
 
 @layer components {
     form > div > div > input[type='text'], input[type='password'], form textarea {
-        @apply p-4 w-full rounded pl-10 text-sm focus:outline-none border border-gray-200 focus:border-red-400;
+        @apply p-4 w-full rounded pl-10 text-sm focus:outline-none border border-gray-200 focus:border-emerald-400;
     }
 
     input[type='text'], input[type='password'] {

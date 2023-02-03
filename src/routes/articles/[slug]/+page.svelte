@@ -94,9 +94,9 @@
                 {#each data.article.categories as category, i}
                     <a class="text-xl font-semibold text-blue-400 hover:underline" href="/categories/{category.category.url_slug}">{category.category.name}</a>{#if i != data.article.categories.length - 1}{", "}{/if}
                 {/each}
-                <h1 class="w-full text-3xl lg:text-5xl text-zinc-800 font-extrabold pb-4">{data.article.title}</h1>
-                <h2 class="w-full text-lg text-zinc-500 font-medium py-3">{data.article.excerpt}</h2>
-                <img src="{data.article.cover_img}" alt="{data.article.cover_img_caption}" class="w-full mt-10">
+                <h1 class="w-full text-2xl lg:text-5xl text-zinc-800 font-extrabold pb-4">{data.article.title}</h1>
+                <h2 class="w-full lg:text-lg text-zinc-500 font-semibold py-3">{data.article.excerpt}</h2>
+                <img src="{data.article.cover_img}" alt="{data.article.cover_img_caption}" class="max-w-full mt-10 ml-auto mr-auto">
                 <p class="mt-2 text-zinc-400 text-sm">{data.article.cover_img_caption}</p>
                 <h3 class="w-full text-zinc-800 font-bold pt-10">
                     By
@@ -112,7 +112,7 @@
             <div class="hero-container">
                 <div class="hero">
                     <div class="meta">
-                        <h1 class="text-3xl lg:text-5xl text-gray-100 font-extrabold">{data.article.title}</h1>
+                        <h1 class="text-2xl lg:text-5xl text-gray-100 font-extrabold">{data.article.title}</h1>
                         <h3 class="text-gray-100 font-bold pt-10">
                             By
                             {#each data.article.authors as author, i}
@@ -127,7 +127,7 @@
             <div class="">
                 <p class="w-1/3 mt-2 pl-10 text-zinc-400 text-sm">{data.article.cover_img_caption}</p>
                 <div class="flex justify-center mt-10">
-                    <h2 class="custom-container max-w-3xl text-lg font-bold text-zinc-600">{data.article.excerpt}</h2>
+                    <h2 class="custom-container max-w-3xl lg:text-lg font-semibold text-zinc-600">{data.article.excerpt}</h2>
                 </div>
             </div>
         </header>
@@ -154,7 +154,7 @@
             <div>
                 <div class="border-b-2 border-slate-200">
                     <aside class="my-5 italic text-zinc-400">This article was produced by Woodinville High School's nonprofit journalism club. If you want to see more stories like these, please consider <a class="text-zinc-800 hover:underline" target="_blank" href="/donate">donating</a> or joining our <a class="text-zinc-800 hover:underline" target="_blank" href="/newsletter">newsletter</a>!</aside>
-                    <section class="text-zinc-900 content font-sans mt-5">{@html data.article.content}</section>
+                    <section class="text-zinc-900 content mt-5">{@html data.article.content}</section>
                     <aside>
                         {#each data.article.authors as author}
                             <section class="border-zinc-300 border-t-2 py-5 flex">

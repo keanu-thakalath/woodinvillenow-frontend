@@ -12,15 +12,10 @@
     export let data: PageData;
     let page = 1;
 
-    for (let i = 4; i >= 0; i--) {
-        if (data.articles[i].categories[0].category.name === 'Poetry') {
-            data.articles.splice(i, 1);
-        }
-    }
     let cover_article = data.articles.shift();
+    let second_article = data.articles.shift();
+    let third_and_fourth_articles = data.articles.splice(0, 2);
     let side_article = data.articles.shift();
-    let third_article = data.articles.shift();
-    let fourth_and_fifth_articles = data.articles.splice(0, 2);
 
     async function loadArticles() {
         if (page > -1) {
@@ -62,28 +57,28 @@
                 <div class="w-full pb-10 border-b-2 lg:w-6/12 border-slate-200 lg:border-r-2 lg:border-b-0 lg:pb-0 lg:pr-5 xl:pr-10">
                     <div class="flex flex-wrap">
                         <div class="w-8/12 lg:w-full lg:order-2 xl:order-1 xl:w-8/12 pr-5">
-                            {#each third_article.tags as tag, i}
-                                <a class="text-xs font-bold uppercase" href="/tags?tag={tag.tag.url_slug}">{tag.tag.name}</a>{#if i != third_article.tags.length - 1}{", "}{/if}
+                            {#each second_article.tags as tag, i}
+                                <a class="text-xs font-bold uppercase" href="/tags?tag={tag.tag.url_slug}">{tag.tag.name}</a>{#if i != second_article.tags.length - 1}{", "}{/if}
                             {/each}
-                            <a href="/articles/{third_article.url_slug}" class="block text-xl text-zinc-800 font-extrabold">{third_article.title}</a>
+                            <a href="/articles/{second_article.url_slug}" class="block text-xl text-zinc-800 font-extrabold">{second_article.title}</a>
                             <div>
-                                <h2 class="text-zinc-800 py-3 text-sm">{third_article.excerpt}</h2>
+                                <h2 class="text-zinc-800 py-3 text-sm">{second_article.excerpt}</h2>
                                 <h3 class="text-zinc-600 text-sm">
                                     By
-                                    {#each third_article.authors as author, i}
+                                    {#each second_article.authors as author, i}
                                         <a href="/staff/{author.author.url_slug}">{author.author.name}</a>{", "}
                                     {/each}
-                                    <Datetime dateStyle={'medium'} class="text-sm text-zinc-600" datetime={third_article.datetime} />
+                                    <Datetime dateStyle={'medium'} class="text-sm text-zinc-600" datetime={second_article.datetime} />
                                 </h3>
                             </div>
                         </div>
                         <div class="w-4/12 lg:w-full lg:order-1 xl:order-2 xl:w-4/12">
-                            <a href="/articles/{third_article.url_slug}"><img src="{third_article.cover_img}" alt="{third_article.cover_img_caption}" class="square lg:landscape w-full"></a>
+                            <a href="/articles/{second_article.url_slug}"><img src="{second_article.cover_img}" alt="{second_article.cover_img_caption}" class="square lg:landscape w-full"></a>
                         </div>
                     </div>
                 </div>
                 <div class="flex flex-wrap w-full pt-10 mb-10 border-200-slate border-b-2 lg:border-b-0 lg:pt-0 lg:w-6/12 lg:pl-5 xl:pl-10">
-                    {#each fourth_and_fifth_articles as article, i}
+                    {#each third_and_fourth_articles as article, i}
                         <div class="w-full sm:w-6/12 border-slate-200 {i == 0 ? 'sm:border-r-2' : ''} {i == 0 ? 'sm:pr-5': 'sm:pl-5'} lg:px-0 lg:border-r-0 lg:w-full flex mb-5">
                             <div class="w-full xl:w-9/12 xl:pr-5">
                                 {#each article.tags as tag, i}
@@ -133,9 +128,6 @@
                     <h2 class="font-extrabold text-zinc-800 text-xl mb-1 border-slate-200 border-b-2 pb-2">Featured Poems</h2>
                     {#each data.poems as article}
                         <div class="pb-3 mt-2 border-b-2 border-slate-200">
-                            {#each article.tags as tag, i}
-                                <a class="text-xs font-bold uppercase" href="/tags?tag={tag.tag.url_slug}">{tag.tag.name}</a>{#if i != article.tags.length - 1}{", "}{/if}
-                            {/each}
                             <a href="/articles/{article.url_slug}" class="block text-zinc-800 font-medium">{article.title}</a>
                             <h3 class="text-zinc-600 text-sm">
                                 By

@@ -45,6 +45,9 @@
 
 <section class="flex justify-center pt-40">
     <div class="w-9/12 bg-gray-100 text-gray-900 rounded-md px-10 py-2">
+        <form on:submit|preventDefault={handleSubmit} class="space-y-4">
+            <Submit bind:this={submit} value="New Author"/>
+        </form>
         <div class="my-3 flex justify-between items-center border-b-2 py-5 border-gray-300">
             <p class="w-1/4 pl-2 font-bold">Staff</p>
             <p class="w-3/12">Group</p>
@@ -67,9 +70,6 @@
                 <p class="w-1/12">{author.id}</p>
             </div>
         {/each}
-        <form on:submit|preventDefault={handleSubmit} class="space-y-4">
-            <Submit bind:this={submit} value="New Author"/>
-        </form>
     </div>
 </section>
 

@@ -1,6 +1,7 @@
 <script lang="ts">
     import { PUBLIC_BACKEND_DOMAIN } from '$env/static/public';
     import Alert from '$lib/components/Alert.svelte'
+    import Head from '$lib/components/Head.svelte';
     import Submit from '$lib/components/Submit.svelte';
 
     let alert: Alert;
@@ -31,6 +32,8 @@
         }
     };
   </script>
+
+<Head title={`Login`} url={`/login`} />
 
 <Alert bind:this={alert} />
 
