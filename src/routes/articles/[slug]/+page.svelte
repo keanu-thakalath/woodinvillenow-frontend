@@ -168,7 +168,17 @@
         <div class="custom-container justify-center max-w-5xl">
             <div class="max-w-3xl">
                 <aside class="my-5 italic text-zinc-400">This article was produced by Woodinville High School's nonprofit journalism club. If you want to see more stories like these, please consider <a class="text-zinc-800 hover:underline" target="_blank" href="/donate">donating</a> or joining our <a class="text-zinc-800 hover:underline" target="_blank" href="/newsletter">newsletter</a>!</aside>
-                <section class="text-zinc-900 content mt-5">{@html data.article.content}</section>
+                <section class="text-zinc-900 content mt-5">
+                    {#each data.article.content as content}
+                        {#if content === '<StayUpToDate />'}
+                            <div class="ml-auto mr-auto max-w-lg">
+                                <StayUpToDate compact={true} />
+                            </div>
+                        {:else}
+                            {@html content}
+                        {/if}
+                    {/each}
+                </section>
                 <aside>
                     {#each data.article.authors as author}
                         <section class="border-zinc-300 border-t-2 py-5 flex">
@@ -234,15 +244,5 @@
                 </div>
             </footer>
         </div>
-        <!-- <div class="w-full max-w-[300px] ml-10">
-            <StayUpToDate />
-            <MostReadArticles />
-        </div> -->
     </div>
 </article>
-
-<style lang='scss'>
-    article.cover {
-        margin-top: -100px;
-    }
-</style>

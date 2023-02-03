@@ -11,5 +11,10 @@ export const load: PageLoad = async ({ fetch, params }) => {
         });
     }
 
+    article.content = article.content.split('<StayUpToDate />');
+    for (let i = article.content.length - 1; i > 0; i--) {
+        article.content.splice(i, 0, '<StayUpToDate />');
+    }
+
     return { article };
 };

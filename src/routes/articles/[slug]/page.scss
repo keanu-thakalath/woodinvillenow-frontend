@@ -1,6 +1,9 @@
 @tailwind components;
 
 @layer components {
+    article.cover {
+        margin-top: -100px;
+    }
     article {
         section.content {
             p {
@@ -50,6 +53,10 @@
 
             a {
                 @apply text-blue-400 hover:text-emerald-500;
+            }
+
+            .stay-up-to-date p {
+                @apply mb-0;
             }
         }
     }
