@@ -19,7 +19,7 @@
                 <nav id="full-nav">
                     <div class="flex justify-center">
                         <div class="flex flex-wrap w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
-                            <form action="/search" method="get" class="flex justify-center w-full px-5 mt-20">
+                            <form action="/search" method="get" class="flex justify-center w-full px-5 lg:mt-20">
                                 <input name="query" type="text" placeholder="Search" class="p-1 text-xl w-full pl-5 border-zinc-300 border-2 outline-none hover:border-zinc-400 rounded-md focus:border-zinc-400">
                             </form>
                             <div class="flex flex-wrap mt-10">
@@ -36,10 +36,10 @@
                                 <div class="w-1/2 mb-5">
                                     <h3>Tags</h3>
                                     <ul>
-                                        <li><a href="/tags?tag=creative-writing">Creative Writing</a></li>
-                                        <li><a href="/tags?tag=current-events">Current Events</a></li>
-                                        <li><a href="/tags?tag=whs-happenings">WHS Happenings</a></li>
+                                        <li><a href="/tags?tag=woodinville-high-school">Woodinville High School</a></li>
+                                        <li><a href="/tags?tag=modern-issues">Modern Issues</a></li>
                                         <li><a href="/tags?tag=op-ed">Op-Ed</a></li>
+                                        <li><a href="/tags?tag=sports">Sports</a></li>
                                         <li><a href="/tags">More...</a></li>
                                     </ul>
                                 </div>

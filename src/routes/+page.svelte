@@ -160,7 +160,7 @@
             </div>
             <JoinUs />
         </div>
-        <div class="order-1 w-full md:w-9/12 pr-5 lg:order-2 lg:w-7/12 lg:pr-0 lg:pl-5">
+        <div class="order-1 w-full md:w-9/12 md:pr-5 lg:order-2 lg:w-7/12 lg:pr-0 lg:pl-5">
             {#each data.articles as article}
                 <div class="flex pb-5 mb-5 border-b-2 border-slate-200">
                     <div class="w-9/12 xl:w-10/12 pr-5">
@@ -184,7 +184,7 @@
                     {/if}
                 </div>
             {/each}
-            <LoadOnScroll load={loadArticles} />
+            <LoadOnScroll load={loadArticles} page={page} />
         </div>
         <div class="w-full order-3 lg:w-3/12 lg:pr-0 lg:pl-5">
             <StayUpToDate />

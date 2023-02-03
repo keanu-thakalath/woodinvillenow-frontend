@@ -5,12 +5,27 @@
     import MostReadArticles from "$lib/components/MostReadArticles.svelte";
     import Datetime from "$lib/components/Datetime.svelte";
     import Head from "$lib/components/Head.svelte";
+    import LoadOnScroll from '$lib/components/LoadOnScroll.svelte';
     import type { PageData } from "./$types";
+    import { PUBLIC_BACKEND_DOMAIN } from "$env/static/public";
     
     export let data: PageData;
+
+    async function loadArticles() {
+        if (data.page > -1) {
+            data.page++;
+            let articles = data.tag.url_slug === 'all' ? await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles?page=${data.page}&limit=${data.limit}`).then((res) => res.json()) : await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles?page=${data.page}&tag=${data.tag.url_slug}&limit=${data.limit}`).then((res) => res.json());
+
+            if (articles.length < data.limit) {
+                data.page = -1;
+            }
+            data.articles = [...data.articles, ...articles];
+        }
+    }
 </script>
 
 <Head title={"Tags"} url={"/tags"} />
+
 <svelte:head>
     <link rel="canonical" href="https://woodinvillenow.org/tags" />
 </svelte:head>
@@ -53,6 +68,7 @@
                             </div>
                         </div>
                     {/each}
+                    <LoadOnScroll load={loadArticles} page={data.page} />
                 </div>
             </section>
             <section class="md:w-3/12">

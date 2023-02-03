@@ -11,6 +11,8 @@ export const load: PageLoad = async ({ fetch, params }) => {
         });
     }
 
-    const articles = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles?category=${params.slug}`).then((res) => res.json());
-    return { category, articles };
+    const limit = 8;
+
+    const articles = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles?category=${params.slug}&limit=${limit}`).then((res) => res.json());
+    return { category, articles, limit, page: 1 };
 };

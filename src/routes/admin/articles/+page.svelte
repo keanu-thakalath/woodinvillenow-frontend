@@ -84,7 +84,7 @@
                 <p class="w-1/12 hover:text-blue-500"><a href="/articles/{article.url_slug}">{article.url_slug}</a></p>
             </div>
         {/each}
-        <LoadOnScroll load={loadArticles} />
+        <LoadOnScroll load={loadArticles} page={page} />
     </div>
 </section>
 

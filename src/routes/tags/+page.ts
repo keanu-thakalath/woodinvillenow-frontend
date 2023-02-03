@@ -19,7 +19,9 @@ export const load: PageLoad = async ({ fetch, url }) => {
         });
     }
 
-    const articles = tag.url_slug === 'all' ? await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles`).then((res) => res.json()) : await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles?tag=${tag.url_slug}`).then((res) => res.json());
+    const limit = 8;
 
-    return { articles, tags, tag };
+    const articles = tag.url_slug === 'all' ? await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles?limit=${limit}`).then((res) => res.json()) : await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles?tag=${tag.url_slug}&limit=${limit}`).then((res) => res.json());
+
+    return { articles, tags, tag, limit, page: 1 };
 };

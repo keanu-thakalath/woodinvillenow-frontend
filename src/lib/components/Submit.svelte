@@ -1,8 +1,8 @@
 <script lang="ts">
     export let value: string;
     export let styles = 'mt-5 text-center w-full p-4 bg-emerald-700 text-zinc-50 uppercase text-lg font-bold disabled:bg-emerald-900 disabled:cursor-default hover:bg-emerald-900 hover:cursor-pointer'
-    // export let styles = 'focus:outline-none bg-red-500 hover:cursor-pointer hover:bg-red-600 focus:bg-red-600 focus:ring focus:ring-red-200 w-full h-9 mt-3 text-white rounded';
     export let disabled = false;
+    export let onclick = () => {};
     let inpValue = value;
     let inp: HTMLInputElement;
     let loading = false;
@@ -19,7 +19,7 @@
     }
 </script>
 
-<input bind:this={inp} class="{loading ? 'loading': ''} {styles}" type="submit" value="{inpValue}" {disabled}>
+<input bind:this={inp} class="{loading ? 'loading': ''} {styles}" type="submit" value="{inpValue}" {disabled} on:click={onclick}>
 
 <style lang="scss">
     .loading {
