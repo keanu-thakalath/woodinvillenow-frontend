@@ -42,7 +42,7 @@
             <Submit bind:this={submit} value="New Tag"/>
         </form>
         <div class="my-3 flex justify-between items-center border-b-2 py-5 border-gray-300">
-            <p class="w-5/12 pl-2 font-bold">Tags</p>
+            <p class="w-5/12 font-bold">Tags</p>
             <p class="w-5/12">URL Slug</p>
             <p class="w-1/6">ID</p>
         </div>

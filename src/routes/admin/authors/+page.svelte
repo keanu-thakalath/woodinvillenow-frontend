@@ -49,7 +49,7 @@
             <Submit bind:this={submit} value="New Author"/>
         </form>
         <div class="my-3 flex justify-between items-center border-b-2 py-5 border-gray-300">
-            <p class="w-1/4 pl-2 font-bold">Staff</p>
+            <p class="w-1/4 font-bold">Staff</p>
             <p class="w-3/12">Group</p>
             <p class="w-1/6">Active</p>
             <p class="w-1/6">URL Slug</p>
