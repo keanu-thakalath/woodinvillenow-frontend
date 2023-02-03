@@ -40,7 +40,7 @@
                         <a class="text-xs font-bold uppercase" href="/tags?tag={tag.tag.url_slug}">{tag.tag.name}</a>{#if i != cover_article.tags.length - 1}{", "}{/if}
                     {/each}
                     <a href="/articles/{cover_article.url_slug}" class="block text-xl md:text-3xl text-zinc-800 font-extrabold">{cover_article.title}</a>
-                    <h2 class="text-zinc-800 py-3">{cover_article.excerpt}</h2>
+                    <h2 class="text-zinc-800 pt-3">{cover_article.excerpt}</h2>
                     <h3 class="text-zinc-600 text-sm">
                         By
                         {#each cover_article.authors as author, i}
@@ -62,7 +62,7 @@
                             {/each}
                             <a href="/articles/{second_article.url_slug}" class="block text-xl text-zinc-800 font-extrabold">{second_article.title}</a>
                             <div>
-                                <h2 class="text-zinc-800 py-3 text-sm">{second_article.excerpt}</h2>
+                                <h2 class="text-zinc-800 pt-3 text-sm">{second_article.excerpt}</h2>
                                 <h3 class="text-zinc-600 text-sm">
                                     By
                                     {#each second_article.authors as author, i}
@@ -85,7 +85,7 @@
                                     <a class="text-xs font-bold uppercase" href="/tags?tag={tag.tag.url_slug}">{tag.tag.name}</a>{#if i != article.tags.length - 1}{", "}{/if}
                                 {/each}
                                 <a href="/articles/{article.url_slug}" class="block text-zinc-800 font-extrabold">{article.title}</a>
-                                <h3 class="text-zinc-600 text-sm mt-3">
+                                <h3 class="text-zinc-600 text-sm">
                                     By
                                     {#each article.authors as author, i}
                                         <a href="/staff/{author.author.url_slug}">{author.author.name}</a>{", "}
@@ -113,7 +113,7 @@
                     <a href="/articles/{side_article.url_slug}"><img src="{side_article.cover_img}" alt="{side_article.cover_img_caption}" class="square lg:portrait w-full"></a>
                 </div>
                 <div class="order-3 sm:order-2 lg:order-3 lg:w-full sm:pr-5 lg:pr-0">
-                    <h2 class="text-zinc-800 py-3 text-sm">{side_article.excerpt}</h2>
+                    <h2 class="text-zinc-800 pt-3 text-sm">{side_article.excerpt}</h2>
                     <h3 class="text-zinc-600 text-sm">
                         By
                         {#each side_article.authors as author, i}
