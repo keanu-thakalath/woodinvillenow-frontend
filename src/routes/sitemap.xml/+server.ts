@@ -5,37 +5,11 @@ import { PUBLIC_BACKEND_DOMAIN } from '$env/static/public';
 export const GET: RequestHandler = async ({ fetch }) => {
     const pages = ['', '/about', '/contact', '/staff', '/newsletter', '/donate'];
     const articles = await fetch(`${PUBLIC_BACKEND_DOMAIN}/api/articles`).then((res) => res.json());
-    console.log();
     const response = new Response(sitemap(pages, articles));
 
-    response.headers.set('Cache-Control', 'max-age=0, s-maxage=3600');
     response.headers.set('Content-Type', 'application/xml');
     return response;
 };
-
-// const sitemap = articles => `<?xml version="1.0" encoding="UTF-8" ?>
-// <urlset
-//   xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
-//   xmlns:news="https://www.google.com/schemas/sitemap-news/0.9"
-//   xmlns:xhtml="https://www.w3.org/1999/xhtml"
-//   xmlns:mobile="https://www.google.com/schemas/sitemap-mobile/1.0"
-//   xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"
-//   xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
-// >
-//   <url>
-//     <loc>https://${DOMAIN}</loc>
-//     <changefreq>daily</changefreq>
-//     <priority>1</priority>
-//   </url>
-//   ${articles
-//     .map(article => `
-//   <url>
-//     <loc>https://${DOMAIN}/articles/${article.url_slug}</loc>
-//   </url>
-//   `
-//     )
-//     .join('')}
-// </urlset>`
 
 const sitemap = (pages, articles) => `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
